@@ -1,0 +1,17 @@
+{
+    "name": "zardsama/pdo",
+    "description": "PDO database library",
+    "license": "None",
+    "authors": [
+        {
+            "name": "Zardsama",
+            "email": "zardsama@naver.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "zardsama\\pdo\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
