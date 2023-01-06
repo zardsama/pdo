@@ -16,7 +16,13 @@ Class PDODatabase {
 	private $errcode;
 	private $last_id;
 
-	public function __construct($dbinfo, $charset = 'utf8') {
+	public function __construct($dbinfo, $charset = 'utf8mb4') {
+        if (is_object($dbinfo) && get_class($dbinfo) == 'PDO') {
+            $this->pdo = $dbinfo;
+            $this->driver = $this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+            return;
+        }
+
         $this->driver = $dbinfo['driver'];
 
         switch($dbinfo['driver']) {
