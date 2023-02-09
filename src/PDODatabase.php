@@ -91,6 +91,16 @@ Class PDODatabase {
 		return false;
 	}
 
+    public function object($qry, $param = array())
+    {
+        $res = $this->query($qry, $param);
+
+        if ($res instanceof PDOStatement == true) {
+            return $res->fetchAll(PDO::FETCH_OBJ);
+        }
+        return false;
+    }
+
 	public function assoc($qry, $param = null) {
 		$res = $this->query($qry, $param);
 		if(!$res) return false;
